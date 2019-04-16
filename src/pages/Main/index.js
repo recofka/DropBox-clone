@@ -7,7 +7,6 @@ export default class Main extends Component {
         return (
             <div id='main-container'>
                 <form>
-                    {/* <img src={logo} alt='Logo'/> */}
                     <i class="fab fa-dropbox fa-4x">CloneBox</i>
                     <input placeholder='Create a box'/>
                     <button type='submit'>Create</button>
