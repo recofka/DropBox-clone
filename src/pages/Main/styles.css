@@ -36,3 +36,7 @@
 #main-container form button:hover {
     opacity: 0.8;
 }
+
+.fa-dropbox {
+    color: #7159c1
+}
