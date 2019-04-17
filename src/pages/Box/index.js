@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { MdInsertDriveFile } from 'react-icons/md';
+import { distanceInWords } from 'date-fns';
 import './styles.css';
 import api from '../../services/api';
 
@@ -19,7 +20,7 @@ export default class Box extends Component {
 
   render() {
     if (this.state.box.files === undefined){
-      return <h1>Loading</h1>
+      return <h1 id='box-loading'>Loading</h1>
     }
     
     return (
@@ -36,7 +37,7 @@ export default class Box extends Component {
                 <MdInsertDriveFile size={24} color='#5c1f99' />
                 <strong>{file.title}</strong>
               </a>
-              <span>{file.createdAt}</span>
+              <span>{distanceInWords(file.createdAt, new Date())} ago</span>
             </li>
           ))}
         </ul>

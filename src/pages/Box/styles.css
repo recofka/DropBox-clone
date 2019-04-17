@@ -68,3 +68,12 @@
     margin-left: 10px;
     color: #333;
 }
+
+#box-loading {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    color: #5c1f99
+}
