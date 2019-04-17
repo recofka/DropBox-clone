@@ -4,4 +4,4 @@ const api = axios.create({
     baseURL: 'https://hidden-shore-25474.herokuapp.com'
 });
 
-export default api;
+export default api

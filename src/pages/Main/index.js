@@ -9,7 +9,7 @@ export default class Main extends Component {
 
     handleSubmit = async event => {
         event.preventDefault();
-        
+
         const response = await api.post('boxes', {
             title: this.state.newBox
         });
@@ -17,7 +17,7 @@ export default class Main extends Component {
     }
 
     handleInputChange = (event) => {
-        this.setState({newBox: event.target.value})
+        this.setState({ newBox: event.target.value })
     }
 
     render() {
@@ -25,11 +25,11 @@ export default class Main extends Component {
             <div id='main-container'>
                 <form onSubmit={this.handleSubmit}>
                     <i className="fab fa-dropbox fa-4x">CloneBox</i>
-                    <input 
+                    <input
                         placeholder='Create a box'
                         value={this.state.newBox}
                         onChange={this.handleInputChange}
-                        />
+                    />
                     <button type='submit'>Create</button>
 
                 </form>
