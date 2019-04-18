@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { MdInsertDriveFile } from 'react-icons/md';
 import { distanceInWords } from 'date-fns';
 import Dropzone from 'react-dropzone';
+import socket from 'socket.io-client';
 import './styles.css';
 import api from '../../services/api';
 
@@ -12,6 +13,10 @@ export default class Box extends Component {
 
 
   async componentDidMount() {
+    //"subscribe" at socket.io
+    this.subscribeToNewFiles();
+
+    //Post files in the API
     const box = this.props.match.params.id;
     const response = await api.get(`boxes/${box}`);
     this.setState({ box: response.data })
@@ -22,12 +27,22 @@ export default class Box extends Component {
     files.forEach(element => {
       const data = new FormData();
       const box = this.props.match.params.id;
-      
+
       data.append('file', element);
       api.post(`boxes/${box}/file`, data);
     });
   }
 
+  subscribeToNewFiles = () => {
+    const box = this.props.match.params.id;
+    const io = socket('https://hidden-shore-25474.herokuapp.com');
+
+    io.emit('connectRoom', box);
+    
+    io.on('file', data => {
+      this.setState({ box: { ...this.state.box, files: [data, ...this.state.box.files] } })
+    })
+  }
   render() {
     if (this.state.box.files === undefined) {
       return <h1 id='box-loading'>Loading</h1>
@@ -41,9 +56,9 @@ export default class Box extends Component {
         </header>
 
         <Dropzone onDropAccepted={this.handleUpload}>
-          {({getRootProps, getInputProps})=> (
+          {({ getRootProps, getInputProps }) => (
             <div className='upload' {...getRootProps()}>
-              <input {...getInputProps()}/>
+              <input {...getInputProps()} />
               <p>Drop to upload your files or choose your files</p>
             </div>
           )}
