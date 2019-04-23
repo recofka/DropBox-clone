@@ -14,16 +14,15 @@
 - **[Goals for this project](#goals-for-this-project)**
 - **[Features built so far overview with pull requests](#features-built-so-far-overview-with-pull-requests)**
 - **[My git workflow](#my-git-workflow)**
-- **[My agile workflow and trello board](#my-agile-workflow-and-trello-board)**
-- **[create-react-app-docs](#create-react-app)**
+- **[Create-react-app-docs](#create-react-app)**
 
 ## Technologies used
 
 #### 👀👇 Click links to view some samples in this project 👇👀
 
-- **[react](.src/pages/Main/index.js)**
-- **[Socket.io](.src/pages/Box/index.js)**
-- **[Routes](.src/routes.js)**
+- **[react](https://github.com/recofka/DropBox-clone/blob/master/src/pages/Main/index.js)**
+- **[Socket.io](https://github.com/recofka/DropBox-clone/blob/master/src/pages/Box/index.js)**
+- **[Routes](https://github.com/recofka/DropBox-clone/blob/master/src/routes.js)**
 
 
 
@@ -78,3 +77,8 @@ Build the following features:
 
 - Authentication
 
+## Create React App
+
+This project was scaffolded using the create-react-app cli. 
+
+**[The standard create-react-app docs can be found in here](./create-react-app-docs.md)**
