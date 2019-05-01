@@ -5,12 +5,12 @@ import './AllBoxes.css';
 
 const AllBoxes = ({ boxes }) => {
   if (!boxes) {
-    return (<div>Loading...</div>)
+    return (<div>Loading...</div>);
   }
   return (
-    <div  id="boxes-container">
+    <div id="boxes-container">
       {
-        boxes.map((box) => (
+        boxes.map(box => (
           <AllBoxesComponent
             title={box.title}
             key={box._id}
@@ -20,8 +20,7 @@ const AllBoxes = ({ boxes }) => {
         ))
       }
     </div>
-  )
+  );
 };
 
 export default AllBoxes;
-
