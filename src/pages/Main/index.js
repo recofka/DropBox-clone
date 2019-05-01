@@ -1,11 +1,18 @@
 import React, { Component } from 'react';
 import './styles.css';
 import api from '../../services/api';
+import AllBoxes from '../AllBoxes/index';
 
 export default class Main extends Component {
     state = {
-        newBox: ''
+        newBox: '',
+        allBoxes: '',
     };
+
+    async componentDidMount() {
+      const response = await api.get(`allboxes`)
+      this.setState({ allBoxes: response.data })
+    }
 
     handleSubmit = async event => {
         event.preventDefault();
@@ -13,7 +20,6 @@ export default class Main extends Component {
         const response = await api.post('boxes', {
             title: this.state.newBox
         });
-        console.log(response.data)
         this.props.history.push(`/box/${response.data._id}`)
     }
 
@@ -23,6 +29,7 @@ export default class Main extends Component {
 
     render() {
         return (
+            <div>
             <div id='main-container'>
                 <form onSubmit={this.handleSubmit}>
                     <i className="fab fa-dropbox fa-4x">CloneBox</i>
@@ -34,8 +41,13 @@ export default class Main extends Component {
                     <button type='submit'>Create</button>
 
                 </form>
+                
 
             </div>
+            <div>
+            <AllBoxes boxes={this.state.allBoxes}/>
+        </div>
+        </div>
         );
     }
 }
