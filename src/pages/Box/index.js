@@ -20,7 +20,6 @@ export default class Box extends Component {
     const box = this.props.match.params.id;
     const response = await api.get(`boxes/${box}`);
     this.setState({ box: response.data })
-    console.log('response', response)
   }
 
   handleUpload = (files) => {
@@ -68,7 +67,7 @@ export default class Box extends Component {
           {this.state.box.files && this.state.box.files.map(file => (
             <li key={file._id}>
               <a className='fileInfo' href={file.url} target='blank'>
-                <MdInsertDriveFile size={24} color='#5c1f99' />
+                <MdInsertDriveFile size={24} color='#7159c1' />
                 <strong>{file.title}</strong>
               </a>
               <span>{distanceInWords(file.createdAt, new Date())} ago</span>
