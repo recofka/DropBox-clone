@@ -1,5 +1,4 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable react/destructuring-assignment */
+
 import React, { Component } from 'react';
 import './styles.css';
 import api from '../../services/api';
@@ -22,7 +21,7 @@ export default class Main extends Component {
       const response = await api.post('boxes', {
         title: this.state.newBox,
       });
-      // eslint-disable-next-line no-underscore-dangle
+      
       this.props.history.push(`/box/${response.data._id}`);
     }
 

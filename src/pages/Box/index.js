@@ -67,7 +67,7 @@ export default class Box extends Component {
 
         <ul>
           {files && files.map(file => (
-            // eslint-disable-next-line no-underscore-dangle
+            
             <li key={file._id}>
               <a className="fileInfo" href={file.url} target="blank">
                 <MdInsertDriveFile size={24} color="#7159c1" />
