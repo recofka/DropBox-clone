@@ -11,7 +11,6 @@ export default class Box extends Component {
     box: {},
   }
 
-
   async componentDidMount() {
     // "subscribe" at socket.io
     this.subscribeToNewFiles();
@@ -34,7 +33,7 @@ export default class Box extends Component {
 
   subscribeToNewFiles = () => {
     const box = this.props.match.params.id;
-    const io = socket('https://hidden-shore-25474.herokuapp.com');
+    const io = socket('https://drop-b-api.herokuapp.com');
 
     io.emit('connectRoom', box);
 
@@ -52,7 +51,9 @@ export default class Box extends Component {
     return (
       <div id="box-container">
         <header>
+          <a href='/'>
           <i className="fab fa-dropbox fa-4x">CloneBox</i>
+          </a>
           <h1>{title}</h1>
         </header>
 
@@ -66,10 +67,10 @@ export default class Box extends Component {
         </Dropzone>
 
         <ul>
-          {files && files.map(file => (
-            
+          {files && files.map(file => 
+
             <li key={file._id}>
-              <a className="fileInfo" href={file.url} target="blank">
+              <a className="fileInfo" href={`https://drop-b-api.herokuapp.com/files/${file.path}`} target="parent">
                 <MdInsertDriveFile size={24} color="#7159c1" />
                 <strong>{file.title}</strong>
               </a>
@@ -79,7 +80,7 @@ export default class Box extends Component {
                 ago
               </span>
             </li>
-          ))}
+          )}
         </ul>
       </div>
     );

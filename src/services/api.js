@@ -1,6 +1,6 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'https://hidden-shore-25474.herokuapp.com',
+  baseURL: 'https://drop-b-api.herokuapp.com' ,
 });
 export default api;
