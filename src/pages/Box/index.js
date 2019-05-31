@@ -68,6 +68,7 @@ export default class Box extends Component {
 
         <ul>
           {files && files.map(file => 
+
             <li key={file._id}>
               <a className="fileInfo" href={`https://drop-b-api.herokuapp.com/files/${file.path}`} target="parent">
                 <MdInsertDriveFile size={24} color="#7159c1" />
