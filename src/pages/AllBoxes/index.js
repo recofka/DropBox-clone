@@ -5,7 +5,7 @@ import './AllBoxes.css';
 
 const AllBoxes = ({ boxes }) => {
   if (!boxes) {
-    return (<div>Loading...</div>);
+    return (<div id="box-loading-home" >Loading all boxes...</div>);
   }
   return (
     <div id="boxes-container">
