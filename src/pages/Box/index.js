@@ -11,7 +11,6 @@ export default class Box extends Component {
     box: {},
   }
 
-
   async componentDidMount() {
     // "subscribe" at socket.io
     this.subscribeToNewFiles();
