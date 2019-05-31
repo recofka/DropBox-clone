@@ -45,7 +45,7 @@ export default class Box extends Component {
   render() {
     const { title, files } = this.state.box;
     if (files === undefined) {
-      return (<h1 id="box-loading">Loading</h1>);
+      return (<h1 id="box-loading-boxes">Loading...</h1>);
     }
 
     return (

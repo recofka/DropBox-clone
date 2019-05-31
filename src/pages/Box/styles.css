@@ -69,11 +69,11 @@
     color: #333;
 }
 
-#box-loading {
+#box-loading-boxes {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: center;
-    align-content: center;
-    color: #5c1f99
+    margin-top: 3rem;
+    font-size: 2em;
+    color: #715ac0
 }
